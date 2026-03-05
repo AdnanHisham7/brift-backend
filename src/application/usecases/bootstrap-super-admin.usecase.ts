@@ -4,6 +4,7 @@ import { BootstrapSuperAdminDTO } from "@/application/dtos/bootstrap-super-admin
 import { User } from "@/domain/entities/User";
 import { Role } from "@/domain/entities/Role";
 import { PasswordService } from "@/infrastructure/services/password.service";
+import { ConflictError } from "@/domain/errors/conflict-error";
 
 export class BootstrapSuperAdminUseCase {
   constructor(
@@ -15,7 +16,7 @@ export class BootstrapSuperAdminUseCase {
     const existingSuperAdmin = await this.userRepository.findSuperAdmin();
 
     if (existingSuperAdmin) {
-      throw new Error("Super admin already exists");
+      throw new ConflictError("Super admin already exists");
     }
 
     let role = await this.roleRepository.findByName("SUPER_ADMIN");
