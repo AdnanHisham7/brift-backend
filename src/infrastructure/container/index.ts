@@ -1,6 +1,6 @@
-import { UserRepository } from "../repositories/user.repository";
-import { RoleRepository } from "../repositories/role.repository";
-import { BootstrapSuperAdminUseCase } from "../../application/usecases/bootstrap-super-admin.usecase";
+import { UserRepository } from "@/infrastructure/repositories/user.repository";
+import { RoleRepository } from "@/infrastructure/repositories/role.repository";
+import { BootstrapSuperAdminUseCase } from "@/application/usecases/bootstrap-super-admin.usecase";
 
 class Container {
   userRepository = new UserRepository();

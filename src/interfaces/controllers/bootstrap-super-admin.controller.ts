@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
-import { validateBootstrapSuperAdmin } from "../../shared/validators/bootstrap-super-admin.validator";
-import { container } from "../../infrastructure/container";
+import { validateBootstrapSuperAdmin } from "@/shared/validators/bootstrap-super-admin.validator";
+import { container } from "@/infrastructure/container";
 
 export const bootstrapSuperAdmin = async (
   req: Request,

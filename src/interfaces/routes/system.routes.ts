@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { bootstrapSuperAdmin } from "../controllers/bootstrap-super-admin.controller";
+import { bootstrapSuperAdmin } from "@/interfaces/controllers/bootstrap-super-admin.controller";
 
 const router = Router();
 

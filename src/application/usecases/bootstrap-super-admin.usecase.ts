@@ -1,9 +1,9 @@
-import { IUserRepository } from "../../domain/repositories/user.repository.interface";
-import { IRoleRepository } from "../../domain/repositories/role.repository.interface";
-import { BootstrapSuperAdminDTO } from "../dtos/bootstrap-super-admin.dto";
-import { User } from "../../domain/entities/User";
-import { Role } from "../../domain/entities/Role";
-import { PasswordService } from "../../infrastructure/services/password.service";
+import { IUserRepository } from "@/domain/repositories/user.repository.interface";
+import { IRoleRepository } from "@/domain/repositories/role.repository.interface";
+import { BootstrapSuperAdminDTO } from "@/application/dtos/bootstrap-super-admin.dto";
+import { User } from "@/domain/entities/User";
+import { Role } from "@/domain/entities/Role";
+import { PasswordService } from "@/infrastructure/services/password.service";
 
 export class BootstrapSuperAdminUseCase {
   constructor(

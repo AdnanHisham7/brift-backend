@@ -1,7 +1,7 @@
-import { IUserRepository } from "../../domain/repositories/user.repository.interface";
-import { User } from "../../domain/entities/User";
-import { UserModel } from "../database/models/user.model";
-import { RoleModel } from "../database/models/role.model";
+import { IUserRepository } from "@/domain/repositories/user.repository.interface";
+import { User } from "@/domain/entities/User";
+import { UserModel } from "@/infrastructure/database/models/user.model";
+import { RoleModel } from "@/infrastructure/database/models/role.model";
 
 export class UserRepository implements IUserRepository {
   async findSuperAdmin(): Promise<User | null> {

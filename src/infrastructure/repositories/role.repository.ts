@@ -1,6 +1,6 @@
-import { IRoleRepository } from "../../domain/repositories/role.repository.interface";
-import { Role } from "../../domain/entities/Role";
-import { RoleModel } from "../database/models/role.model";
+import { IRoleRepository } from "@/domain/repositories/role.repository.interface";
+import { Role } from "@/domain/entities/Role";
+import { RoleModel } from "@/infrastructure/database/models/role.model";
 
 export class RoleRepository implements IRoleRepository {
   async findByName(name: string): Promise<Role | null> {
