@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
-import { validateBootstrapSuperAdmin } from "@/shared/validators/bootstrap-super-admin.validator";
 import { container } from "@/infrastructure/container";
+import { sendSuccess } from "@/shared/utils/api-response";
 
 export const bootstrapSuperAdmin = async (
   req: Request,
@@ -8,14 +8,12 @@ export const bootstrapSuperAdmin = async (
   next: NextFunction,
 ) => {
   try {
-    const validatedData = validateBootstrapSuperAdmin(req);
+    const result = await container.bootstrapSuperAdminUseCase.execute(req.body);
 
-    const result =
-      await container.bootstrapSuperAdminUseCase.execute(validatedData);
-
-    res.status(201).json({
+    return sendSuccess(res, {
       message: "Super admin created successfully",
       data: result,
+      statusCode: 201,
     });
   } catch (error) {
     next(error);
