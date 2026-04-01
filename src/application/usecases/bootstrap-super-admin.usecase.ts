@@ -1,15 +1,16 @@
 import { IUserRepository } from "@/domain/repositories/user.repository.interface";
 import { IRoleRepository } from "@/domain/repositories/role.repository.interface";
+import { IPasswordService } from "@/domain/services/password-service.interface";
 import { BootstrapSuperAdminDTO } from "@/application/dtos/bootstrap-super-admin.dto";
 import { User } from "@/domain/entities/User";
 import { Role } from "@/domain/entities/Role";
-import { PasswordService } from "@/infrastructure/services/password.service";
 import { ConflictError } from "@/domain/errors/conflict-error";
 
 export class BootstrapSuperAdminUseCase {
   constructor(
     private userRepository: IUserRepository,
     private roleRepository: IRoleRepository,
+    private passwordService: IPasswordService,
   ) {}
 
   async execute(data: BootstrapSuperAdminDTO) {
@@ -31,7 +32,7 @@ export class BootstrapSuperAdminUseCase {
       );
     }
 
-    const hashedPassword = await PasswordService.hash(data.password);
+    const hashedPassword = await this.passwordService.hash(data.password);
 
     const user = new User({
       firstName: data.firstName,

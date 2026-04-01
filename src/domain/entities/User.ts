@@ -5,6 +5,7 @@ export interface UserProps {
   email: string;
   password: string;
   roleId: string;
+  roleName?: string;
 }
 
 export class User {
@@ -32,5 +33,9 @@ export class User {
 
   get roleId() {
     return this.props.roleId;
+  }
+
+  get roleName() {
+    return this.props.roleName;
   }
 }
